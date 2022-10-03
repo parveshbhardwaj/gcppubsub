@@ -3,12 +3,14 @@ package pubsub
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"cloud.google.com/go/pubsub"
 )
 
 func DeletePubSubTopic(projectID, topicID string) error {
-	ctx := context.Background()
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
 	client, err := pubsub.NewClient(ctx, projectID)
 	if err != nil {
 		return fmt.Errorf("pubsub.NewClient: %v", err)
@@ -24,7 +26,8 @@ func DeletePubSubTopic(projectID, topicID string) error {
 }
 
 func DeletePubSubSubscription(projectID, subID string) error {
-	ctx := context.Background()
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
 	client, err := pubsub.NewClient(ctx, projectID)
 	if err != nil {
 		return fmt.Errorf("pubsub.NewClient: %v", err)

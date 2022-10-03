@@ -10,7 +10,8 @@ import (
 
 // projects/local-proj-123/topics/sample-project-del-topic
 func CreatePubSubTopic(projectID, topicID string) (*pubsub.Topic, error) {
-	ctx := context.Background()
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
 	client, err := pubsub.NewClient(ctx, projectID)
 	if err != nil {
 		return nil, fmt.Errorf("pubsub.NewClient: %v", err)
@@ -27,7 +28,8 @@ func CreatePubSubTopic(projectID, topicID string) (*pubsub.Topic, error) {
 
 func CreatePubSubSubscription(projectID, subID string, topic *pubsub.Topic) error {
 	// topic of type https://godoc.org/cloud.google.com/go/pubsub#Topic
-	ctx := context.Background()
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
 	client, err := pubsub.NewClient(ctx, projectID)
 	if err != nil {
 		return fmt.Errorf("pubsub.NewClient: %v", err)

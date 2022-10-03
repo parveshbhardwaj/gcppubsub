@@ -3,6 +3,9 @@ This is the repository for setting gcp pub sub on local machine.
 
 # Usage
 
+## Prerequisite
+set up the PUBSUB_EMULATOR_HOST environment variable
+
 ## To create subscription and topic
 go run main.go --create --projectId=projectId --topic=topic-name --subscription=subscription-name
 

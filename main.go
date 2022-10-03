@@ -50,6 +50,12 @@ func callCreation(projectID, topicID, subscriptionID string) {
 	if len(projectID) == 0 {
 		fmt.Println(" please provide project id ")
 	}
+	if len(topicID) == 0 {
+		fmt.Println(" please provide topic name ")
+	}
+	if len(subscriptionID) > 0 && len(topicID) == 0 {
+		fmt.Println(" please provide topic name along with subscription name ")
+	}
 	if len(topicID) > 0 && len(subscriptionID) == 0 {
 		pubsub.CreatePubSubTopic(projectID, topicID)
 	} else if len(subscriptionID) > 0 && len(topicID) > 0 {
