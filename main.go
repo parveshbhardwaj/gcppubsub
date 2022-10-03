@@ -27,7 +27,7 @@ func main() {
 	flag.BoolVar(&publish, "publish", false, "flag for publishing message to pubsub topic")
 	flag.StringVar(&topicID, "topic", "", "flag for topic id")
 	flag.StringVar(&projectID, "projectId", "", "flag for project Id")
-	flag.StringVar(&subscriptionID, "subscriptionId", "", "flag for subscriptionID")
+	flag.StringVar(&subscriptionID, "subscription", "", "flag for subscription id")
 	flag.StringVar(&message, "message", "", "flag for pub subs message")
 	flag.Parse()
 
