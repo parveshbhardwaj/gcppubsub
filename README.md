@@ -4,6 +4,10 @@ This is the repository for setting gcp pub sub on local machine.
 # Usage
 
 ## Prerequisite
+Install Pubsub on your local using below link
+
+https://cloud.google.com/pubsub/docs/emulator
+
 set up the PUBSUB_EMULATOR_HOST environment variable
 
 ## To create subscription and topic
