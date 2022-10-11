@@ -88,7 +88,7 @@ func callPublishMessage(projectID, topicID, message string) {
 		fmt.Println(" please provide project id ")
 		return
 	}
-	if len(topicID) > 0 {
+	if len(topicID) == 0 {
 		fmt.Println(" please provide topic id ")
 		return
 	}

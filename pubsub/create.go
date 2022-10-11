@@ -43,6 +43,6 @@ func CreatePubSubSubscription(projectID, subID string, topic *pubsub.Topic) erro
 	if err != nil {
 		return fmt.Errorf("CreateSubscription: %v", err)
 	}
-	fmt.Printf("Created subscription: %v\n", sub)
+	fmt.Printf("Subscription created: %v\n", sub)
 	return nil
 }
