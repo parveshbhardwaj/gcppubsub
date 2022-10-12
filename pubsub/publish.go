@@ -23,10 +23,10 @@ func PublishMessage(projectID, topicID, message string) error {
 	},
 	)
 	results = append(results, res)
-
 	for _, r := range results {
 		id, err := r.Get(ctx)
 		if err != nil {
+			fmt.Println("error publishing message", err)
 			return err
 		}
 		fmt.Printf("Published a message with a message ID: %s\n", id)
